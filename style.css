@@ -415,31 +415,6 @@ input[type="color"],
 	top: 34px;
 }
 
-/* Header Style2 */
-.header.header-style2 {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	z-index: 999;
-	background: rgba(0, 0, 0, 0.1);
-	border-bottom: 1px solid rgba(122, 122, 122, 0.1);
-}
-
-.header.header-style2 .logo a {
-	border: 1px solid #ccc;
-}
-
-.header.header-style2 #mainnav > ul > li > a,
-.header.header-style2 .menu.menu-extra > li > a {
-	color: #fff;
-}
-
-/* Header 2 fix */
-.header.header-style2.header-sticky {
-	background: rgba(0, 0, 0, 0.8);
-	border-color: rgba(0,0,0,0.5)!important;
-}
 
 /* Header Style3 */
 .header.header-style3 {
@@ -483,50 +458,6 @@ input[type="color"],
 	left: 0;
 	top: 0;
 	z-index: 99999;
-}
-
-/* Header style4 */
-.home4 .top {
-	position: relative;
-	left: 0;
-	top: 0;
-	padding-bottom: 15px;
-	background: #202020;
-}
-
-#lang_sel {
-	float: left;
-	padding-top: 15px;	
-	margin-right: 47px;
-}
-
-#lang_sel ul li {
-	position: relative;
-}
-
-#lang_sel ul li a {
-	color: #C5C5C5;
-}
-
-#lang_sel ul li ul {
-	position: absolute;
-	left: 0;
-	top: 100%;
-	width: 200px;
-	visibility: hidden;
-	opacity: 0;
-}
-
-.top .flat-information {
-	padding-top: 15px;
-}
-
-.header.header-style4 {
-	-webkit-transition: all 0.3s ease-in-out;
-	   -moz-transition: all 0.3s ease-in-out;
-	    -ms-transition: all 0.3s ease-in-out;
-	     -o-transition: all 0.3s ease-in-out;
-	        transition: all 0.3s ease-in-out;
 }
 
 
