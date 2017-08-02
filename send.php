@@ -1,4 +1,5 @@
 <?php
+Allow: GET, POST, HEAD
 $name = $_POST['name'];
 $email = $_POST['email'];
 $website = $_POST['website'];
