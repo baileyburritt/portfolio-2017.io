@@ -1,5 +1,5 @@
 <?php
-Allow: GET, POST, HEAD
+Allow: POST
 $name = $_POST['name'];
 $email = $_POST['email'];
 $website = $_POST['website'];
