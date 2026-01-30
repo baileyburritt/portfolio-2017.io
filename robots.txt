@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://baileyburritt.github.io/portfolio-2017.io/sitemap.xml
