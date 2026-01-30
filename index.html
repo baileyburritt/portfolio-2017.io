@@ -1194,9 +1194,28 @@
         "reviewCount": "15"
       }
     }
+        // Video debugging
+const video = document.querySelector('.hero-video');
+console.log('Video element:', video);
+console.log('Video readyState:', video.readyState);
+console.log('Video currentTime:', video.currentTime);
+console.log('Video duration:', video.duration);
+console.log('Video paused:', video.paused);
+
+// Force higher opacity for testing
+video.style.opacity = '0.8';
+video.style.border = '3px solid red'; // Temporary - shows video boundaries
+
+// Try to play
+video.play().then(() => {
+    console.log('✅ Video playing!');
+}).catch(e => {
+    console.log('❌ Video play failed:', e);
+});
     </script>
 
 </body>
 </html>
+
 
 
