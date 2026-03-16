@@ -111,7 +111,3 @@ Elements that should animate in on scroll use the `.fade-observe` CSS class (pre
 - **Character counter**: Live count on `#message` textarea (max 5000)
 - **Smooth scroll**: `querySelectorAll('a[href^="#"]')` with `scrollIntoView({ behavior: 'smooth' })`. The CSS `html { scroll-behavior }` property is intentionally absent — JS is the single scroll handler.
 - **Fade-in animations**: IntersectionObserver on `.fade-observe` elements — adds `.visible` class on intersection, then unobserves.
-
-## Known Issues
-
-- The hero `<video src="hero-showreel.mp4">` file does not exist in the repo; the video element falls back to a dark overlay gracefully
