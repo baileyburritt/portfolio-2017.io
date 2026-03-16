@@ -3,48 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary SEO Meta Tags -->
     <title>Bailey Burritt | Video Editor & Audio Engineer | Rochester, NY</title>
     <meta name="title" content="Bailey Burritt | Video Editor & Audio Engineer | Rochester, NY">
     <meta name="description" content="Professional video editor and audio engineer in Rochester, NY. Specializing in motion graphics, video production, and audio engineering. 15+ years experience serving businesses and educational institutions.">
     <meta name="keywords" content="video editor Rochester NY, audio engineer Rochester, motion graphics artist, video production Rochester, sound designer, corporate video, promotional video editing, Premiere Pro, After Effects">
     <meta name="author" content="Bailey Burritt">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baileyburritt.github.io/portfolio-2017.io/">
     <meta property="og:title" content="Bailey Burritt - Video Editor & Audio Engineer Rochester NY">
     <meta property="og:description" content="Professional video editing and audio engineering services in Rochester, NY. 15+ years experience in motion graphics and video production.">
     <meta property="og:image" content="https://baileyburritt.github.io/portfolio-2017.io/images/profileImages/profileLarge.jpg">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baileyburritt.github.io/portfolio-2017.io/">
     <meta property="twitter:title" content="Bailey Burritt - Video Editor Rochester NY">
     <meta property="twitter:description" content="Professional video editing & audio engineering in Rochester, NY">
     <meta property="twitter:image" content="https://baileyburritt.github.io/portfolio-2017.io/images/profileImages/profileLarge.jpg">
-    
+
     <!-- Location Meta Tags -->
     <meta name="geo.region" content="US-NY">
     <meta name="geo.placename" content="Rochester">
     <meta name="geo.position" content="43.1566;-77.6088">
     <meta name="ICBM" content="43.1566, -77.6088">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://baileyburritt.github.io/portfolio-2017.io/">
-    
+
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             /* Colors */
@@ -69,17 +69,13 @@
             --font-display: 'DM Serif Display', Georgia, serif;
             --font-body: 'DM Sans', system-ui, sans-serif;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
+
         body {
             font-family: var(--font-body);
             background: var(--bg-dark);
@@ -87,7 +83,7 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         /* Glassmorphic utility classes */
         .glass {
             background: var(--glass-bg);
@@ -96,21 +92,21 @@
             border: 1px solid var(--glass-border);
             box-shadow: 0 8px 32px var(--glass-shadow);
         }
-        
+
         .glass-strong {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
-        
+
         /* Container */
         .container {
             max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 40px;
         }
-        
+
         /* Navigation */
         nav {
             position: fixed;
@@ -121,7 +117,7 @@
             padding: 24px 0;
             transition: all 0.3s ease;
         }
-        
+
         nav.scrolled {
             background: rgba(8, 12, 20, 0.85);
             backdrop-filter: blur(24px);
@@ -129,13 +125,13 @@
             padding: 16px 0;
             border-bottom: 1px solid rgba(180, 220, 255, 0.08);
         }
-        
+
         .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-family: var(--font-display);
             font-size: 24px;
@@ -144,14 +140,14 @@
             text-decoration: none;
             letter-spacing: -0.5px;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 40px;
             list-style: none;
             align-items: center;
         }
-        
+
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
@@ -160,11 +156,12 @@
             transition: color 0.3s ease;
             position: relative;
         }
-        
-        .nav-links a:hover {
+
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--accent-cyan);
         }
-        
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -175,11 +172,13 @@
             background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
             transition: width 0.3s ease;
         }
-        
-        .nav-links a:hover::after {
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
-        
+
+        /* CTA Buttons */
         .cta-button {
             background: rgba(176, 216, 240, 0.1);
             color: var(--text-primary);
@@ -199,7 +198,88 @@
             border-color: rgba(176, 216, 240, 0.6);
             box-shadow: 0 4px 20px rgba(176, 216, 240, 0.12);
         }
-        
+
+        .cta-button--outline {
+            background: transparent;
+            border: 2px solid var(--accent-cyan);
+        }
+
+        .cta-button--outline:hover {
+            background: rgba(176, 216, 240, 0.1);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 4px 20px rgba(176, 216, 240, 0.12);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(8, 12, 20, 0.97);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 32px 0;
+        }
+
+        .mobile-nav.open {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .mobile-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent-cyan);
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -209,7 +289,7 @@
             justify-content: center;
             overflow: hidden;
         }
-        
+
         .hero-video {
             position: absolute;
             top: 0;
@@ -219,7 +299,7 @@
             object-fit: cover;
             opacity: 1;
         }
-        
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -228,7 +308,7 @@
             height: 100%;
             background: linear-gradient(180deg, rgba(10, 14, 26, 0.6) 0%, rgba(10, 14, 26, 0.8) 100%);
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
@@ -237,7 +317,7 @@
             padding: 60px;
             animation: fadeInUp 1s ease;
         }
-        
+
         .hero-glass {
             background: rgba(10, 20, 35, 0.45);
             backdrop-filter: blur(40px);
@@ -247,7 +327,7 @@
             padding: 80px 60px;
             box-shadow: 0 0 0 1px rgba(180, 220, 255, 0.04) inset, 0 24px 64px rgba(0, 0, 0, 0.5);
         }
-        
+
         .hero h1 {
             font-family: var(--font-display);
             font-size: 72px;
@@ -257,7 +337,7 @@
             letter-spacing: -1px;
             color: var(--text-primary);
         }
-        
+
         .hero-subtitle {
             font-size: 13px;
             color: var(--accent-cyan);
@@ -266,20 +346,20 @@
             letter-spacing: 3px;
             text-transform: uppercase;
         }
-        
+
         .hero-description {
             font-size: 20px;
             color: var(--text-secondary);
             margin-bottom: 40px;
             line-height: 1.7;
         }
-        
+
         .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
         }
-        
+
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -293,7 +373,7 @@
             font-size: 14px;
             animation: bounce 2s infinite;
         }
-        
+
         .scroll-arrow {
             width: 24px;
             height: 24px;
@@ -301,41 +381,33 @@
             border-bottom: 2px solid var(--text-muted);
             transform: rotate(-45deg);
         }
-        
+
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
         }
-        
+
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Services Section */
         .services {
             padding: var(--section-padding) 0;
             position: relative;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 80px;
         }
-        
+
         .section-title h2 {
             font-family: var(--font-display);
             font-size: 52px;
@@ -343,12 +415,12 @@
             margin-bottom: 16px;
             letter-spacing: -0.5px;
         }
-        
+
         .section-title p {
             font-size: 20px;
             color: var(--text-secondary);
         }
-        
+
         /* Bento Grid */
         .bento-grid {
             display: grid;
@@ -356,7 +428,7 @@
             gap: 24px;
             grid-template-rows: repeat(3, 240px);
         }
-        
+
         .bento-item {
             background: var(--glass-bg);
             backdrop-filter: blur(24px);
@@ -390,16 +462,16 @@
             border-color: rgba(176, 216, 240, 0.25);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 40px rgba(0, 0, 0, 0.4);
         }
-        
+
         .bento-item.large {
             grid-column: span 2;
             grid-row: span 2;
         }
-        
+
         .bento-item.medium {
             grid-column: span 2;
         }
-        
+
         .bento-icon {
             width: 56px;
             height: 56px;
@@ -412,7 +484,7 @@
             margin-bottom: 20px;
             font-size: 26px;
         }
-        
+
         .bento-item h3 {
             font-family: var(--font-body);
             font-size: 22px;
@@ -420,47 +492,47 @@
             font-weight: 500;
             letter-spacing: -0.2px;
         }
-        
+
         .bento-item p {
             color: var(--text-secondary);
             line-height: 1.6;
             font-size: 16px;
         }
-        
+
         .bento-item.large h3 {
             font-family: var(--font-display);
             font-size: 30px;
             font-weight: 400;
         }
-        
+
         .bento-item.large p {
             font-size: 18px;
         }
-        
+
         /* About Section */
         .about {
             padding: var(--section-padding) 0;
             background: var(--bg-mid);
         }
-        
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
         }
-        
+
         .about-image {
             position: relative;
         }
-        
+
         .about-image img {
             width: 100%;
             height: auto;
             border-radius: 24px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
-        
+
         .about-image::after {
             content: '';
             position: absolute;
@@ -472,35 +544,37 @@
             border-radius: 24px;
             z-index: -1;
         }
-        
+
         .about-text h2 {
             font-family: var(--font-display);
             font-size: 48px;
-            margin-bottom: 24px;
+            margin-bottom: 12px;
             font-weight: 400;
         }
-        
+
         .about-text h3 {
-            font-size: 24px;
+            font-size: 13px;
             color: var(--accent-cyan);
-            margin-bottom: 20px;
-            font-weight: 600;
+            margin-bottom: 24px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
-        
+
         .about-text p {
             color: var(--text-secondary);
             margin-bottom: 20px;
             font-size: 18px;
             line-height: 1.7;
         }
-        
+
         .skills-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin-top: 32px;
         }
-        
+
         .skill-tag {
             background: rgba(220, 240, 255, 0.04);
             backdrop-filter: blur(10px);
@@ -518,18 +592,18 @@
             background: rgba(176, 216, 240, 0.08);
             border-color: rgba(176, 216, 240, 0.35);
         }
-        
+
         /* Contact Section */
         .contact {
             padding: var(--section-padding) 0;
         }
-        
+
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
         }
-        
+
         .contact-form-wrapper {
             background: rgba(220, 240, 255, 0.04);
             backdrop-filter: blur(32px);
@@ -539,18 +613,18 @@
             padding: 48px;
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
-        
+
         .form-group {
             margin-bottom: 24px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             font-size: 15px;
         }
-        
+
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -563,26 +637,37 @@
             font-size: 16px;
             transition: all 0.3s ease;
         }
-        
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(176, 216, 240, 0.1);
         }
-        
+
         .form-group textarea {
             resize: vertical;
             min-height: 150px;
         }
-        
+
         .char-count {
             text-align: right;
             font-size: 14px;
             color: var(--text-muted);
             margin-top: 4px;
         }
-        
+
+        .form-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
         .submit-btn {
             width: 100%;
             background: rgba(176, 216, 240, 0.12);
@@ -597,6 +682,10 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .submit-btn:hover {
@@ -604,20 +693,40 @@
             border-color: rgba(176, 216, 240, 0.55);
             box-shadow: 0 4px 20px rgba(176, 216, 240, 0.1);
         }
-        
+
+        .submit-btn:disabled {
+            opacity: 0.65;
+            cursor: wait;
+        }
+
+        .submit-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(232, 244, 255, 0.3);
+            border-top-color: var(--text-primary);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            display: none;
+            flex-shrink: 0;
+        }
+
+        .submit-btn.loading .submit-spinner {
+            display: block;
+        }
+
         .contact-info {
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 32px;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: flex-start;
             gap: 20px;
         }
-        
+
         .contact-icon {
             width: 48px;
             height: 48px;
@@ -630,30 +739,37 @@
             font-size: 20px;
             flex-shrink: 0;
         }
-        
+
         .contact-details h4 {
             font-size: 18px;
             margin-bottom: 4px;
             font-weight: 600;
         }
-        
+
         .contact-details p,
         .contact-details a {
             color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .contact-details a:hover {
             color: var(--accent-cyan);
         }
-        
+
+        .response-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
         .social-links {
             display: flex;
             gap: 16px;
             margin-top: 32px;
         }
-        
+
         .social-link {
             width: 48px;
             height: 48px;
@@ -667,13 +783,13 @@
             color: var(--text-primary);
             transition: all 0.3s ease;
         }
-        
+
         .social-link:hover {
             background: rgba(176, 216, 240, 0.14);
             border-color: rgba(176, 216, 240, 0.4);
             transform: translateY(-3px);
         }
-        
+
         /* Footer */
         footer {
             background: var(--bg-dark);
@@ -681,12 +797,12 @@
             padding: 40px 0;
             text-align: center;
         }
-        
+
         footer p {
             color: var(--text-muted);
             font-size: 15px;
         }
-        
+
         /* Form Message */
         .form-message {
             padding: 16px;
@@ -695,36 +811,48 @@
             display: none;
             font-size: 15px;
         }
-        
+
         .form-message.success {
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(176, 216, 240, 0.1);
             border: 1px solid var(--accent-cyan);
             color: var(--accent-cyan);
         }
-        
+
         .form-message.error {
             background: rgba(255, 82, 82, 0.1);
             border: 1px solid #ff5252;
             color: #ff5252;
         }
-        
+
+        /* Fade-in animation — pre-hidden in CSS to prevent flash */
+        .fade-observe {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-observe.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .bento-grid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: auto;
             }
-            
+
             .bento-item.large {
                 grid-column: span 2;
                 grid-row: span 1;
             }
-            
+
             .bento-item.medium {
                 grid-column: span 1;
             }
         }
-        
+
         @media (max-width: 968px) {
             :root {
                 --section-padding: 80px;
@@ -737,52 +865,60 @@
             .hero-subtitle {
                 font-size: 12px;
             }
-            
+
             .hero-description {
                 font-size: 18px;
             }
-            
+
             .about-content,
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: 48px;
             }
-            
+
             .nav-links {
                 display: none;
             }
-            
+
+            .hamburger {
+                display: flex;
+            }
+
             .section-title h2 {
                 font-size: 38px;
             }
-            
+
             .bento-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .bento-item.large,
             .bento-item.medium {
                 grid-column: span 1;
             }
+
+            .bento-item.large {
+                min-height: 280px;
+            }
         }
-        
+
         @media (max-width: 640px) {
             .container {
                 padding: 0 20px;
             }
-            
+
             .hero-glass {
                 padding: 40px 30px;
             }
-            
+
             .hero h1 {
                 font-size: 36px;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
             }
-            
+
             .skills-list {
                 grid-template-columns: 1fr;
             }
@@ -802,18 +938,29 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <a href="#contact" class="cta-button">Let's Talk</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <!-- Replace with your actual video -->
         <video class="hero-video" autoplay muted loop playsinline>
             <source src="hero-showreel.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
-        
+
         <div class="hero-content">
             <div class="hero-glass">
                 <div class="hero-subtitle">Video Editor & Audio Engineer</div>
@@ -821,11 +968,11 @@
                 <p class="hero-description">Professional video production, editing, and motion graphics in Rochester, NY. Transforming your vision into compelling visual narratives.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="cta-button">Start Your Project</a>
-                    <a href="#services" class="cta-button" style="background: transparent; border: 2px solid var(--accent-cyan);">View Services</a>
+                    <a href="#services" class="cta-button cta-button--outline">View Services</a>
                 </div>
             </div>
         </div>
-        
+
         <div class="scroll-indicator">
             <span>Scroll</span>
             <div class="scroll-arrow"></div>
@@ -839,27 +986,27 @@
                 <h2>What I Do</h2>
                 <p>Comprehensive video production services for businesses and organizations</p>
             </div>
-            
+
             <div class="bento-grid">
-                <div class="bento-item large">
+                <div class="bento-item large fade-observe">
                     <div class="bento-icon">🎬</div>
                     <h3>Video Editing</h3>
                     <p>Expert editing using Premiere Pro and After Effects. From corporate videos to promotional content, I craft polished narratives that engage your audience. Color grading, sound design, and motion graphics all included to elevate your story.</p>
                 </div>
-                
-                <div class="bento-item">
+
+                <div class="bento-item fade-observe">
                     <div class="bento-icon">🎨</div>
                     <h3>Motion Graphics</h3>
                     <p>Eye-catching animations and graphics that enhance your message.</p>
                 </div>
-                
-                <div class="bento-item">
+
+                <div class="bento-item fade-observe">
                     <div class="bento-icon">🎧</div>
                     <h3>Audio Engineering</h3>
                     <p>Professional mixing and sound design for pristine audio quality.</p>
                 </div>
-                
-                <div class="bento-item">
+
+                <div class="bento-item fade-observe">
                     <div class="bento-icon">💿</div>
                     <h3>DVD Authoring</h3>
                     <p>Professional encoding and authoring for physical media.</p>
@@ -872,20 +1019,20 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-image">
+                <div class="about-image fade-observe">
                     <img src="images/profileImages/profileLarge.jpg" alt="Bailey Burritt - Professional Video Editor">
                 </div>
-                
-                <div class="about-text">
+
+                <div class="about-text fade-observe">
                     <h2>15+ Years of Visual Storytelling</h2>
-                    <h3>Professional Video Editor & Audio Engineer in Rochester, NY</h3>
+                    <h3>Professional Video Editor & Audio Engineer — Rochester, NY</h3>
 
                     <p>I'm <strong>Bailey Burritt</strong>, a professional video editor and audio engineer serving Rochester, NY and the greater upstate New York region.</p>
-                    
+
                     <p>With over 15 years of experience in <strong>video production, motion graphics, and sound design</strong>, I deliver high-quality media solutions for businesses, educational institutions, and events.</p>
-                    
+
                     <p>Currently serving as Senior Technical Assistant at Monroe Community College, where I've produced hundreds of videos for departments, events, and the scholarship foundation.</p>
-                    
+
                     <div class="skills-list">
                         <div class="skill-tag">Adobe Premiere Pro</div>
                         <div class="skill-tag">After Effects</div>
@@ -895,7 +1042,7 @@
                         <div class="skill-tag">Motion Graphics</div>
                         <div class="skill-tag">Audio Engineering</div>
                     </div>
-                    
+
                     <a href="#contact" class="cta-button" style="display: inline-block; margin-top: 32px;">Work With Me</a>
                 </div>
             </div>
@@ -909,70 +1056,86 @@
                 <h2>Let's Create Together</h2>
                 <p>Ready to bring your vision to life? Get in touch today.</p>
             </div>
-            
+
             <div class="contact-container">
                 <div class="contact-form-wrapper">
                     <div id="formMessage" class="form-message"></div>
-                    
+
                     <form id="contactForm" method="POST" action="https://formspree.io/f/xqebgoyr">
                         <div class="form-group">
                             <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject">
+                            <input type="text" id="subject" name="subject" placeholder="What's this about?">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" required maxlength="5000"></textarea>
+                            <textarea id="message" name="message" placeholder="Tell me about your project..." required maxlength="5000"></textarea>
                             <div class="char-count"><span id="charCount">0</span> / 5000</div>
                         </div>
-                        
-                        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+
+                        <p class="form-note">* Required fields</p>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span class="submit-spinner" id="submitSpinner"></span>
+                            <span id="submitLabel">Send Message</span>
+                        </button>
                     </form>
                 </div>
-                
+
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <div class="contact-item fade-observe">
                         <div class="contact-icon">📍</div>
                         <div class="contact-details">
                             <h4>Location</h4>
                             <p>Rochester, NY Area</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-item">
+
+                    <div class="contact-item fade-observe">
                         <div class="contact-icon">📧</div>
                         <div class="contact-details">
                             <h4>Email</h4>
                             <a href="mailto:baileyburritt@gmail.com">baileyburritt@gmail.com</a>
+                            <p class="response-note">I typically respond within 1–2 business days.</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-item">
+
+                    <div class="contact-item fade-observe">
                         <div class="contact-icon">📱</div>
                         <div class="contact-details">
                             <h4>Phone</h4>
-                            <a href="tel:+15852108328">1-585-210-8328</a>
+                            <a href="tel:+15852108328">(585) 210-8328</a>
                         </div>
                     </div>
-                    
+
                     <div>
                         <h4 style="margin-bottom: 16px;">Connect With Me</h4>
                         <div class="social-links">
-                            <a href="https://www.facebook.com/bailey.burritt" target="_blank" class="social-link" aria-label="Facebook">f</a>
-                            <a href="https://www.linkedin.com/in/bailey-burritt-19082a19" target="_blank" class="social-link" aria-label="LinkedIn">in</a>
-                            <a href="https://twitter.com/baileyburritt" target="_blank" class="social-link" aria-label="Twitter">𝕏</a>
-                            <a href="https://www.instagram.com/baileyburritt/" target="_blank" class="social-link" aria-label="Instagram">📷</a>
-                            <a href="https://www.youtube.com/@BaileyBurritt" target="_blank" class="social-link" aria-label="YouTube">▶</a>
+                            <a href="https://www.facebook.com/bailey.burritt" target="_blank" class="social-link" aria-label="Facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/bailey-burritt-19082a19" target="_blank" class="social-link" aria-label="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            </a>
+                            <a href="https://twitter.com/baileyburritt" target="_blank" class="social-link" aria-label="Twitter / X">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.738l7.73-8.835L1.254 2.25H8.08l4.261 5.635 5.903-5.635Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>
+                            </a>
+                            <a href="https://www.instagram.com/baileyburritt/" target="_blank" class="social-link" aria-label="Instagram">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            </a>
+                            <a href="https://www.youtube.com/@BaileyBurritt" target="_blank" class="social-link" aria-label="YouTube">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--bg-dark)"/></svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -992,17 +1155,32 @@
         // Navigation scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+            nav.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = mobileNav.classList.toggle('open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close mobile nav on link click
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
         });
 
         // Character counter
         const messageField = document.getElementById('message');
         const charCount = document.getElementById('charCount');
-        
+
         if (messageField && charCount) {
             messageField.addEventListener('input', function() {
                 charCount.textContent = this.value.length;
@@ -1012,25 +1190,25 @@
         // Form submission
         const form = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
+        const submitLabel = document.getElementById('submitLabel');
         const messageDiv = document.getElementById('formMessage');
 
         if (form) {
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
+
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
+                submitBtn.classList.add('loading');
+                submitLabel.textContent = 'Sending...';
                 messageDiv.style.display = 'none';
-                
+
                 try {
                     const response = await fetch(form.action, {
                         method: 'POST',
                         body: new FormData(form),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: { 'Accept': 'application/json' }
                     });
-                    
+
                     if (response.ok) {
                         messageDiv.className = 'form-message success';
                         messageDiv.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you soon!';
@@ -1046,47 +1224,51 @@
                     messageDiv.style.display = 'block';
                 } finally {
                     submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
+                    submitBtn.classList.remove('loading');
+                    submitLabel.textContent = 'Send Message';
                 }
             });
         }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active nav link via IntersectionObserver
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
                     });
                 }
             });
-        });
+        }, { threshold: 0.4 });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        sections.forEach(section => sectionObserver.observe(section));
 
-        const observer = new IntersectionObserver((entries) => {
+        // Fade-in animations via CSS class toggle (no inline style flash)
+        const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
+                    fadeObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        // Observe elements for animation
-        document.querySelectorAll('.bento-item, .about-content > *, .contact-item').forEach((el) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-observe').forEach(el => fadeObserver.observe(el));
     </script>
 
     <!-- Schema Markup for Local Business SEO -->
@@ -1123,13 +1305,7 @@
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
         "opens": "09:00",
         "closes": "17:00"
       },
@@ -1169,7 +1345,7 @@
               "name": "Audio Engineering",
               "description": "Professional audio mixing, sound design, and post-production services"
             }
-          },
+          }
         ]
       },
       "aggregateRating": {
@@ -1178,31 +1354,7 @@
         "reviewCount": "15"
       }
     }
-        // Video debugging
-const video = document.querySelector('.hero-video');
-console.log('Video element:', video);
-console.log('Video readyState:', video.readyState);
-console.log('Video currentTime:', video.currentTime);
-console.log('Video duration:', video.duration);
-console.log('Video paused:', video.paused);
-
-// Force higher opacity for testing
-video.style.opacity = '0.8';
-video.style.border = '3px solid red'; // Temporary - shows video boundaries
-
-// Try to play
-video.play().then(() => {
-    console.log('✅ Video playing!');
-}).catch(e => {
-    console.log('❌ Video play failed:', e);
-});
     </script>
 
 </body>
 </html>
-
-
-
-
-
-

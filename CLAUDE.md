@@ -22,13 +22,13 @@ npx serve .
 
 ## Architecture
 
-The active site is a **fully self-contained single file**: `index.html`. All CSS lives in an inline `<style>` block (lines ~48–790), all JavaScript is inline at the bottom, and all page sections (nav, hero, services/bento grid, about, contact, footer) are in that one file. No external CSS or JS files are loaded.
+The active site is a **fully self-contained single file**: `index.html`. All CSS lives in an inline `<style>` block, all JavaScript is inline at the bottom, and all page sections (nav, hero, services/bento grid, about, contact, footer) are in that one file. No external CSS or JS files are loaded.
 
 A `css/` and `js/` directory exist in the repo with legacy files from an older version of the site (jQuery, Skeleton grid, FlexSlider, etc.) — these are **not used** by the current `index.html` and can be ignored.
 
 **Page sections:**
 
-- **Nav** — fixed, transitions to frosted glass on scroll (`.scrolled` class toggled via Intersection Observer / scroll listener)
+- **Nav** — fixed, transitions to frosted glass on scroll (`.scrolled` class toggled via scroll listener). Includes a hamburger button (`#hamburger`) that toggles a `#mobileNav` dropdown at ≤968px. Nav links highlight the active section via IntersectionObserver.
 - **Hero** — fullscreen with `<video>` background, overlay, and a frosted glass panel (`hero-glass`)
 - **Services** — CSS bento grid (4-col, 3-row on desktop) showcasing: Video Editing, Motion Graphics, Audio Engineering, DVD Authoring
 - **About** — two-column grid (image + text + skill tags)
@@ -75,21 +75,43 @@ Google Fonts loaded via `<link>` in `<head>`: `DM Serif Display` (ital variants)
 - Hover states: border brightening + inner glow (`box-shadow: inset ...`) — no translateY lift on bento items
 - Icons/buttons use frosted glass fill (`rgba(176,216,240,0.08–0.12)`) not gradients
 
+**Button variants:**
+
+- `.cta-button` — frosted glass fill with frost border (default)
+- `.cta-button--outline` — transparent background, 2px solid `--accent-cyan` border. Use this instead of inline `style` overrides for outline buttons.
+
+**About section typography hierarchy:**
+
+- `h2` — large serif (48px, `--font-display`) for the main headline
+- `h3` — eyebrow/label style (13px, uppercase, 2px letter-spacing, `--accent-cyan`). Appears below h2 as a subtitle descriptor, not a competing heading.
+
+**Fade-in animation pattern:**
+
+Elements that should animate in on scroll use the `.fade-observe` CSS class (pre-hidden via CSS, not JS) and receive a `.visible` class from IntersectionObserver. Do **not** set `opacity: 0` or `transform` inline via JavaScript — use the class system to avoid flash-of-content.
+
+```css
+.fade-observe { opacity: 0; transform: translateY(30px); transition: ... }
+.fade-observe.visible { opacity: 1; transform: translateY(0); }
+```
+
+**Social icons:** All social links use inline SVG icons (`currentColor`) — do **not** use text characters, Unicode symbols, or emoji as icon substitutes.
+
 **Responsive breakpoints** (inline `<style>` block):
 
 - `max-width: 1200px` — bento grid collapses to 2-col
-- `max-width: 968px` — stacked layout, nav links hidden, font sizes reduced
+- `max-width: 968px` — stacked layout, nav links hidden, hamburger shown, font sizes reduced, `.bento-item.large` gets `min-height: 280px`
 - `max-width: 640px` — mobile padding, stacked hero buttons, single-col skills
 
 ## Inline JavaScript Behaviors
 
 - **Nav scroll**: Adds `.scrolled` class to `#nav` after 100px scroll
-- **Contact form**: POSTs to Formspree (`https://formspree.io/f/xqebgoyr`) via `fetch()` with `Accept: application/json`. Shows `.form-message.success` or `.form-message.error` div
+- **Hamburger menu**: `#hamburger` toggles `.open` on both itself and `#mobileNav`. Closes on any mobile nav link click. Updates `aria-expanded` attribute.
+- **Active nav links**: IntersectionObserver on `section[id]` elements. Toggles `.active` on matching `.nav-links a` when a section is ≥40% visible.
+- **Contact form**: POSTs to Formspree (`https://formspree.io/f/xqebgoyr`) via `fetch()` with `Accept: application/json`. Shows `.form-message.success` or `.form-message.error` div. Submit button shows a CSS spinner (`.submit-spinner`) and gains `.loading` class during submission; disabled with `cursor: wait` while pending.
 - **Character counter**: Live count on `#message` textarea (max 5000)
-- **Smooth scroll**: `querySelectorAll('a[href^="#"]')` with `scrollIntoView({ behavior: 'smooth' })`
-- **Fade-in animations**: IntersectionObserver on `.bento-item`, `.about-content > *`, `.contact-item` — sets opacity/translateY on intersection
+- **Smooth scroll**: `querySelectorAll('a[href^="#"]')` with `scrollIntoView({ behavior: 'smooth' })`. The CSS `html { scroll-behavior }` property is intentionally absent — JS is the single scroll handler.
+- **Fade-in animations**: IntersectionObserver on `.fade-observe` elements — adds `.visible` class on intersection, then unobserves.
 
 ## Known Issues
 
-- The JSON-LD structured data block (`<script type="application/ld+json">`) has a trailing comma after the last array item in `hasOfferCatalog.itemListElement` — technically invalid JSON but browsers typically ignore it
 - The hero `<video src="hero-showreel.mp4">` file does not exist in the repo; the video element falls back to a dark overlay gracefully
