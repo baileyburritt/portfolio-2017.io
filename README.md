@@ -1,2 +1,2 @@
 # portfolio-2017
-A web apge to display my work in different mediums. Video, photo, audio, web. 
+Welcome to my creative portfolio—a vibrant online showcase of my work across various forms of media. Explore captivating videos, striking photography, immersive audio projects, and innovative web designs, all curated to reflect my passion for storytelling and artistic expression. 
