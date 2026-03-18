@@ -28,12 +28,12 @@ A `css/` and `js/` directory exist in the repo with legacy files from an older v
 
 **Page sections:**
 
-- **Nav** — fixed, transitions to frosted glass on scroll (`.scrolled` class toggled via scroll listener). Includes a hamburger button (`#hamburger`) that toggles a `#mobileNav` dropdown at ≤968px. Nav links highlight the active section via IntersectionObserver.
-- **Hero** — fullscreen with `<video>` background, overlay, and a frosted glass panel (`hero-glass`)
-- **Services** — CSS bento grid (4-col, 3-row on desktop) showcasing: Video Editing, Motion Graphics, Audio Engineering, DVD Authoring
-- **About** — two-column grid (image + text + skill tags)
-- **Contact** — two-column: Formspree form on left, contact info + social links on right
-- **Footer** — single-line copyright
+- **Nav** — fixed, transitions to frosted glass on scroll (`.scrolled` class toggled via scroll listener). Includes a hamburger button (`#hamburger`) that toggles a `#mobileNav` dropdown at ≤968px. Nav links highlight the active section via IntersectionObserver. The `.nav-cta` "Let's Talk" button is hidden at ≤968px (hamburger takes over).
+- **Hero** — fullscreen `<video>` background (`hero-showreel.mp4`) with overlay and a frosted glass panel (`hero-glass`). When the video is absent the `.hero` element has a cinematic radial-gradient CSS fallback so the section is never bare.
+- **Services** — CSS bento grid (4-col, 2-row on desktop) with 5 items: Video Editing (large, 2×2), Motion Graphics, Audio Engineering, DVD Authoring, and a `.bento-stat-card` ("200+ Videos Produced"). Bento items stagger their `.fade-observe` entrance with `transition-delay` via `nth-child` CSS.
+- **About** — two-column grid (image + text). Text column includes: serif `h2` headline, `h3` eyebrow label, three body paragraphs, an `.about-stat-row` with 3 quick stats (15+ yrs, 200+ videos, 3 disciplines), a two-column `.skills-list`, and a CTA button.
+- **Contact** — two-column: Formspree form on left, contact info + social links on right. Contact icons (location, email, phone) use inline SVG — not emoji.
+- **Footer** — multi-column layout: brand/tagline left, two nav columns right (Navigate + Services). Bottom bar has copyright left and 4 social icon links right.
 
 **Images** (`images/`):
 
@@ -94,12 +94,32 @@ Elements that should animate in on scroll use the `.fade-observe` CSS class (pre
 .fade-observe.visible { opacity: 1; transform: translateY(0); }
 ```
 
-**Social icons:** All social links use inline SVG icons (`currentColor`) — do **not** use text characters, Unicode symbols, or emoji as icon substitutes.
+**Social icons:** All social links use inline SVG icons (`currentColor`) — do **not** use text characters, Unicode symbols, or emoji as icon substitutes. This applies to both the contact section and the footer social row.
+
+**Section eyebrow pattern:**
+
+Each section that has a `.section-title` block uses a `.section-eyebrow` div above the `h2`:
+
+```html
+<div class="section-eyebrow">Services</div>
+<h2>What I Do</h2>
+```
+
+CSS: `font-size: 11px`, `letter-spacing: 3.5px`, `text-transform: uppercase`, `color: var(--accent-cyan)`.
+
+**Bento stat card:**
+
+The fifth bento item uses class `.bento-stat-card` (in addition to `.bento-item`). It has a subtle linear-gradient background and contains `.stat-number`, `.stat-label`, and `.stat-sub` elements. The `<span>` inside `.stat-number` is colored `--accent-cyan` (used for the `+` suffix).
+
+**About stat row:**
+
+`.about-stat-row` is a flex row of `.about-stat` items, each with `.about-stat-num` (large serif number + cyan `<span>` suffix) and `.about-stat-desc` (small muted label).
 
 **Responsive breakpoints** (inline `<style>` block):
 
 - `max-width: 1200px` — bento grid collapses to 2-col
-- `max-width: 968px` — stacked layout, nav links hidden, hamburger shown, font sizes reduced, `.bento-item.large` gets `min-height: 280px`
+- `max-width: 968px` — stacked layout, nav links hidden, `.nav-cta` hidden, hamburger shown, font sizes reduced, `.bento-item.large` gets `min-height: 280px`
+- `max-width: 768px` — footer collapses to single column, footer-bottom stacks
 - `max-width: 640px` — mobile padding, stacked hero buttons, single-col skills
 
 ## Inline JavaScript Behaviors

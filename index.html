@@ -210,6 +210,17 @@
             box-shadow: 0 4px 20px rgba(176, 216, 240, 0.12);
         }
 
+        /* Section eyebrow labels */
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 14px;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
         /* Hamburger */
         .hamburger {
             display: none;
@@ -288,6 +299,11 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            background:
+                radial-gradient(ellipse at 25% 55%, rgba(90, 159, 192, 0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 75% 25%, rgba(176, 216, 240, 0.10) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 80%, rgba(13, 21, 32, 0.9) 0%, transparent 60%),
+                var(--bg-dark);
         }
 
         .hero-video {
@@ -426,7 +442,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
-            grid-template-rows: repeat(3, 240px);
+            grid-template-rows: repeat(2, 240px);
         }
 
         .bento-item {
@@ -508,6 +524,47 @@
         .bento-item.large p {
             font-size: 18px;
         }
+
+        /* Stats card in bento */
+        .bento-stat-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: linear-gradient(135deg, rgba(90, 159, 192, 0.1) 0%, rgba(176, 216, 240, 0.06) 100%);
+            border-color: rgba(176, 216, 240, 0.2);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-number span {
+            color: var(--accent-cyan);
+        }
+
+        .stat-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .stat-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Staggered bento animation delays */
+        .bento-grid .fade-observe:nth-child(1) { transition-delay: 0s; }
+        .bento-grid .fade-observe:nth-child(2) { transition-delay: 0.1s; }
+        .bento-grid .fade-observe:nth-child(3) { transition-delay: 0.2s; }
+        .bento-grid .fade-observe:nth-child(4) { transition-delay: 0.3s; }
+        .bento-grid .fade-observe:nth-child(5) { transition-delay: 0.15s; }
 
         /* About Section */
         .about {
@@ -591,6 +648,35 @@
         .skill-tag:hover {
             background: rgba(176, 216, 240, 0.08);
             border-color: rgba(176, 216, 240, 0.35);
+        }
+
+        /* About stat callout */
+        .about-stat-row {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 28px;
+        }
+
+        .about-stat {
+            text-align: left;
+        }
+
+        .about-stat-num {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .about-stat-num span {
+            color: var(--accent-cyan);
+        }
+
+        .about-stat-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
 
         /* Contact Section */
@@ -793,14 +879,114 @@
         /* Footer */
         footer {
             background: var(--bg-dark);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 0;
-            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 64px 0 40px;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: start;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo {
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .footer-tagline {
+            font-size: 15px;
+            color: var(--text-muted);
+            max-width: 280px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 48px;
+        }
+
+        .footer-col h5 {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         footer p {
             color: var(--text-muted);
-            font-size: 15px;
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--accent-cyan);
+            border-color: rgba(176, 216, 240, 0.35);
+        }
+
+        @media (max-width: 768px) {
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-links {
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
         }
 
         /* Form Message */
@@ -880,6 +1066,10 @@
                 display: none;
             }
 
+            .nav-cta {
+                display: none;
+            }
+
             .hamburger {
                 display: flex;
             }
@@ -937,7 +1127,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="#contact" class="cta-button">Let's Talk</a>
+                <a href="#contact" class="cta-button nav-cta">Let's Talk</a>
                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
@@ -983,6 +1173,7 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
+                <div class="section-eyebrow">Services</div>
                 <h2>What I Do</h2>
                 <p>Comprehensive video production services for businesses and organizations</p>
             </div>
@@ -1011,6 +1202,12 @@
                     <h3>DVD Authoring</h3>
                     <p>Professional encoding and authoring for physical media.</p>
                 </div>
+
+                <div class="bento-item bento-stat-card fade-observe">
+                    <div class="stat-number">200<span>+</span></div>
+                    <div class="stat-label">Videos Produced</div>
+                    <div class="stat-sub">for businesses, events &amp; institutions</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1033,6 +1230,21 @@
 
                     <p>Currently serving as Senior Technical Assistant at Monroe Community College, where I've produced hundreds of videos for departments, events, and the scholarship foundation.</p>
 
+                    <div class="about-stat-row">
+                        <div class="about-stat">
+                            <div class="about-stat-num">15<span>+</span></div>
+                            <div class="about-stat-desc">Years of Experience</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat-num">200<span>+</span></div>
+                            <div class="about-stat-desc">Videos Produced</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat-num">3</div>
+                            <div class="about-stat-desc">Core Disciplines</div>
+                        </div>
+                    </div>
+
                     <div class="skills-list">
                         <div class="skill-tag">Adobe Premiere Pro</div>
                         <div class="skill-tag">After Effects</div>
@@ -1053,6 +1265,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
+                <div class="section-eyebrow">Contact</div>
                 <h2>Let's Create Together</h2>
                 <p>Ready to bring your vision to life? Get in touch today.</p>
             </div>
@@ -1094,7 +1307,9 @@
 
                 <div class="contact-info">
                     <div class="contact-item fade-observe">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
                         <div class="contact-details">
                             <h4>Location</h4>
                             <p>Rochester, NY Area</p>
@@ -1102,7 +1317,9 @@
                     </div>
 
                     <div class="contact-item fade-observe">
-                        <div class="contact-icon">📧</div>
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
                         <div class="contact-details">
                             <h4>Email</h4>
                             <a href="mailto:baileyburritt@gmail.com">baileyburritt@gmail.com</a>
@@ -1111,7 +1328,9 @@
                     </div>
 
                     <div class="contact-item fade-observe">
-                        <div class="contact-icon">📱</div>
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
                         <div class="contact-details">
                             <h4>Phone</h4>
                             <a href="tel:+15852108328">(585) 210-8328</a>
@@ -1146,7 +1365,47 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Bailey Burritt. All Rights Reserved.</p>
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Bailey Burritt</a>
+                    <p class="footer-tagline">Video editor &amp; audio engineer crafting cinematic stories in Rochester, NY.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h5>Navigate</h5>
+                        <ul>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Services</h5>
+                        <ul>
+                            <li><a href="#services">Video Editing</a></li>
+                            <li><a href="#services">Motion Graphics</a></li>
+                            <li><a href="#services">Audio Engineering</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bailey Burritt. All Rights Reserved.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/bailey.burritt" target="_blank" aria-label="Facebook">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/bailey-burritt-19082a19" target="_blank" aria-label="LinkedIn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/baileyburritt/" target="_blank" aria-label="Instagram">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@BaileyBurritt" target="_blank" aria-label="YouTube">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--bg-dark)"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
